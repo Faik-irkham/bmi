@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:bmi/constants/constant.dart';
 import 'package:bmi/views/bmi_result_screen.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -12,6 +14,7 @@ class BmiDataScreen extends StatefulWidget {
 }
 
 class _BmiDataScreenState extends State<BmiDataScreen> {
+  int height = 100;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,51 +25,177 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
       body: Column(
         children: [
           Expanded(
-            child: Container(
-              child: Row(
-                children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff272A4E),
-                      borderRadius: BorderRadiusDirectional.circular(15),
-                    ),
-                    margin: EdgeInsets.all(15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:  [
-                        Icon(Icons.male,
-                        size: 80,
-                        ),
-                        Text("Male",
-                        style: genderTextStyle,
-                        ),
-                      ],
-                    ),
+            child: Row(
+              children: const [
+              Expanded(
+                child: BmiCard(
+                  child: GenderIconText(
+                    icon: Icons.male, 
+                    title: 'Male',
                   ),
-                 ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff272A4E),
-                      borderRadius: BorderRadiusDirectional.circular(15),
+                ),
+               ),
+              Expanded(
+                child: BmiCard(
+                  child: GenderIconText(
+                    icon: Icons.female,
+                    title: 'Female',
                     ),
-                    margin: EdgeInsets.all(15),
-                    child: GenderIconText(),
-                  ),
-                 ),
-                ],
-              ),
+                ),
+               ),
+              ],
             ),
           ),
           Expanded(
             child: Container(
-            color: Colors.yellow,
-          )),
+              child: BmiCard(child: 
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "HEIGHT",
+                    style: labelTextStyle!.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    
+                    SizedBox(height: 10),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "$height",
+                      style: numberTextStyle,
+                      ),
+                      
+                      Text(
+                        "cm",
+                        style: labelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 80,
+                    max: 200,
+                    thumbColor: Colors.red,
+                    activeColor: Colors.white,
+                    onChanged: (value) {
+                      height = value.toInt();
+                      setState(() {});
+                    },
+                  ),
+                ],
+              ),
+              ),
+          ),
+          ),
           Expanded(
             child: Container(
-            color: Colors.green,
-          )),
+            child: Row(
+              children: [
+                Expanded(
+                  child: BmiCard(
+                    child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Weight",
+                        style: labelTextStyle,
+                        ),
+                      Text(
+                        "60",
+                       style: numberTextStyle,
+                      ),
+                      SizedBox(height: 8,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RawMaterialButton(onPressed: (){},
+                          elevation: 0,
+                          child: Icon(Icons.add,
+                          color: Colors.white,
+                          ),
+                          shape: CircleBorder(),
+                          fillColor: Color(0xff212747),
+                          constraints: BoxConstraints.tightFor(
+                            width: 50,
+                            height: 50,
+                          ),
+                          ),
+                          SizedBox(width: 10,),
+                          RawMaterialButton(onPressed: (){},
+                          elevation: 0,
+                          child: Icon(Icons.remove,
+                          color: Colors.white,
+                          ),
+                          shape: CircleBorder(),
+                          fillColor: Color(0xff212747),
+                          constraints: BoxConstraints.tightFor(
+                            width: 50,
+                            height: 50,
+                          ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                ),
+                Expanded(
+                  child: BmiCard(
+                    child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Age",
+                        style: labelTextStyle,
+                        ),
+                      Text(
+                        "20",
+                       style: numberTextStyle,
+                      ),
+                      SizedBox(height: 8,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RawMaterialButton(onPressed: (){},
+                          elevation: 0,
+                          child: Icon(Icons.add,
+                          color: Colors.white,
+                          ),
+                          shape: CircleBorder(),
+                          fillColor: Color(0xff212747),
+                          constraints: BoxConstraints.tightFor(
+                            width: 50,
+                            height: 50,
+                          ),
+                          ),
+                          SizedBox(width: 10,),
+                          RawMaterialButton(onPressed: (){},
+                          elevation: 0,
+                          child: Icon(Icons.remove,
+                          color: Colors.white,
+                          ),
+                          shape: CircleBorder(),
+                          fillColor: Color(0xff212747),
+                          constraints: BoxConstraints.tightFor(
+                            width: 50,
+                            height: 50,
+                          ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                ),
+              ],
+            ),
+          ),
+          ),
          GestureDetector(
           onTap: () {
             Navigator.of(context).push(
@@ -89,21 +218,49 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   }
 }
 
+class BmiCard extends StatelessWidget {
+  const BmiCard({
+    Key? key, this.child,
+  }) : super(key: key);
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xff272A4E),
+        borderRadius: BorderRadiusDirectional.circular(15),
+      ),
+      margin: EdgeInsets.all(15),
+      child: child
+    );
+  }
+}
+
 class GenderIconText extends StatelessWidget {
   const GenderIconText({
-    Key? key,
+    Key? key, 
+    required this.title, 
+    required this.icon,
   }) : super(key: key);
+
+final String title;
+final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:  [
-        Icon(Icons.female,
+        Icon(
+        icon,
         size: 80,
         ),
-        Text("Female",
-        style: genderTextStyle,
+        const SizedBox(height: 15),
+        Text(
+         title,
+        style: labelTextStyle,
         ),
       ],
     );
