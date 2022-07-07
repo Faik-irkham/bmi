@@ -11,27 +11,27 @@ class BmiResultScreen extends StatelessWidget {
   //final BmiCalculator? bmiCalculator;
   
 
-                                                        // String determineBmiCategory(double bmiValue){
-                                                        //   String category = "";
-                                                        //   if (bmiValue < 16.0) {
-                                                        //     category = underweightSevere;
-                                                        //   } else if ( bmiValue < 17) {
-                                                        //     category = underweightModerate;
-                                                        //   } else if ( bmiValue < 18.5) {
-                                                        //     category = underweightMild;
-                                                        //   } else if ( bmiValue < 25) {
-                                                        //     category = normal;
-                                                        //   } else if ( bmiValue < 30) {
-                                                        //     category = overweight;
-                                                        //   } else if ( bmiValue < 35) {
-                                                        //     category = obeseI;
-                                                        //   } else if ( bmiValue < 40) {
-                                                        //     category = obeseII;
-                                                        //   } else if (bmiValue >= 40) {
-                                                        //     category = obeseIII;
-                                                        //   }
-                                                        //   return category;
-                                                        // }
+// String determineBmiCategory(double bmiValue){
+    //   String category = "";
+    //   if (bmiValue < 16.0) {
+     //     category = underweightSevere;
+    //   } else if ( bmiValue < 17) {
+     //     category = underweightModerate;
+    //   } else if ( bmiValue < 18.5) {
+    //     category = underweightMild;
+    //   } else if ( bmiValue < 25) {
+    //     category = normal;
+    //   } else if ( bmiValue < 30) {
+    //     category = overweight;
+    //   } else if ( bmiValue < 35) {
+    //     category = obeseI;
+    //   } else if ( bmiValue < 40) {
+    //     category = obeseII;
+    //   } else if (bmiValue >= 40) {
+    //     category = obeseIII;
+    //   }
+    //   return category;
+    // }
 
                                                         // String getHealRiskDescription(String categoryName){
                                                         //   String desc="";
@@ -78,7 +78,7 @@ class BmiResultScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: primaryColor,
               ),
               ),
             ),
@@ -98,7 +98,7 @@ class BmiResultScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: primaryColor,
                     ),
                     ),
                     Text(
@@ -106,7 +106,7 @@ class BmiResultScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 100,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: primaryColor,
                     ),
                     ),
                     Text(
@@ -114,7 +114,7 @@ class BmiResultScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 15,
-                      color: Colors.white,
+                      color: primaryColor,
                     ),
                     ),
                   ],
@@ -128,12 +128,12 @@ class BmiResultScreen extends StatelessWidget {
           },
            child: Container(
             height: 60,
-            color: const Color(0xffEC3C66),
+            color: const Color(0xff517DF6),
             child: const Center(child: Text("Hitung Ulang",
             style: TextStyle(
               fontSize: 25,
                fontWeight: FontWeight.bold,
-               color: Colors.white,
+               color: primaryColor,
             ),
             ),
             ),
