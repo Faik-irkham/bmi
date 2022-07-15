@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme( 
+        appBarTheme: const AppBarTheme(
           //0A0E21
-          iconTheme: IconThemeData(color: primaryColor),
+          iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(
-            color: primaryColor),
+            color: Colors.white),
           backgroundColor: Color(0xff517DF6)),
         // This is the theme of your application.
         //

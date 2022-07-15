@@ -47,7 +47,14 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
       // backgroundColor: const Color(0xff0a0e21),
       appBar: AppBar(
         elevation: 0,
-        title: const Text("BMI Calculator"),
+        title: Center(
+          child: const Text("BMI CALCULATOR",
+          style:  TextStyle(
+              fontSize: 18,
+               fontWeight: FontWeight.bold,
+            ),
+          ),
+          ),
       ),
       bottomNavigationBar: GestureDetector(
           onTap: () {
@@ -71,7 +78,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               borderRadius: BorderRadius.circular(8),
               color: const Color(0xff517DF6),
             ),
-            child: const Center(child: Text("Hitung BMI",
+            child: const Center(child: Text("Calculate BMI",
             style:  TextStyle(
               fontSize: 18,
                fontWeight: FontWeight.bold,
@@ -96,14 +103,14 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   },
                 child: BmiCard(
                   borderColor: 
-                  (gender == "male") ? Color(0xff517DF6) : Colors.white,
+                  (gender == "male") ?Colors.white : Color(0xff517DF6),
                   child: Stack(
                     children: [
                      const Center(
                         child: Padding(
                           padding: EdgeInsets.symmetric(vertical: 20.0),
                           child: GenderIconText(
-                            icon: Icons.male, 
+                            icon: Icons.boy_outlined,
                             title: 'Male',
                           ),
                         ),
@@ -128,14 +135,14 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   },
                   child: BmiCard(
                     borderColor: 
-                    (gender == "female") ? Color(0xff517DF6) : Colors.white,
+                    (gender == "female") ?Colors.white : Color(0xff517DF6),
                     child: Stack(
                       children: [
                         const Center(
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 20.0),
                             child: GenderIconText(
-                              icon: Icons.female,
+                              icon: Icons.girl_outlined,
                               title: 'Female',
                               ),
                           ),
@@ -159,10 +166,11 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               children: [
                 Text(
                   "HEIGHT",
-                  style: labelTextStyle!.copyWith(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    ),
+                  style:  TextStyle(
+              fontSize: 18,
+               fontWeight: FontWeight.bold,
+               color: Colors.black,
+            ),
                   ),
                 Row(
                   children: [
@@ -219,7 +227,11 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                       children: [
                         Text(
                           "Weight",
-                          style: labelTextStyle,
+                          style:  TextStyle(
+              fontSize: 18,
+               fontWeight: FontWeight.bold,
+               color: Colors.black,
+            ),
                           ),
                         BmiCard(
                           child: Column(
@@ -250,7 +262,11 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                       children: [
                         Text(
                           "Age",
-                          style: labelTextStyle,
+                          style:  TextStyle(
+              fontSize: 18,
+               fontWeight: FontWeight.bold,
+               color: Colors.black,
+            ),
                           ),
                         BmiCard(
                           child: Column(
@@ -304,9 +320,9 @@ class BmiCard extends StatelessWidget {
         color: Color(0xff517DF6),
         boxShadow: [
           BoxShadow(
-            offset: Offset(-2, 2),
+            offset: Offset(6, 1),
             blurRadius: 20,
-            color: Colors.black.withOpacity(0.2))
+            color: Colors.black.withOpacity(0.8))
         ],
         borderRadius: BorderRadiusDirectional.circular(15),
         border: Border.all(color: borderColor!),
@@ -335,7 +351,7 @@ final IconData icon;
           Icon(
             icon,
             size: 80,
-            color: primaryColor,
+            color:Colors.white,
         ),
         const SizedBox(height: 15),
           Text(

@@ -68,13 +68,21 @@ class BmiResultScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hasil Hitung Bmi"),
+        title: Center(child: const Text
+        ("RESULT CALCULATE BMI",
+          style:  TextStyle(
+              fontSize: 18,
+               fontWeight: FontWeight.bold,
+            ),
+            
+        ),
+        ),
       ),
       body: Column(
         children: [
           const Expanded(
             child: Center(
-              child: Text("Hasil Perhitungan",
+              child: Text("Calculation Result",
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -98,7 +106,7 @@ class BmiResultScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: primaryColor,
+                      color: Colors.white,
                     ),
                     ),
                     Text(
@@ -106,7 +114,7 @@ class BmiResultScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 100,
                       fontWeight: FontWeight.bold,
-                      color: primaryColor,
+                      color: Colors.white,
                     ),
                     ),
                     Text(
@@ -114,7 +122,7 @@ class BmiResultScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 15,
-                      color: primaryColor,
+                      color: Colors.white,
                     ),
                     ),
                   ],
@@ -127,13 +135,17 @@ class BmiResultScreen extends StatelessWidget {
             Navigator.pop(context);
           },
            child: Container(
-            height: 60,
+            height: 40,
+            margin: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
             color: const Color(0xff517DF6),
-            child: const Center(child: Text("Hitung Ulang",
+            ),
+            child: const Center(child: Text("Recalculate",
             style: TextStyle(
               fontSize: 25,
                fontWeight: FontWeight.bold,
-               color: primaryColor,
+               color: Colors.white,
             ),
             ),
             ),
